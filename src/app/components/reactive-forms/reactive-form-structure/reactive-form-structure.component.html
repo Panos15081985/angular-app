@@ -1,0 +1,52 @@
+<div class="d-flex flex-column">
+    <h5>New Person Form</h5>
+    <form  [formGroup]="userForm" class="d-flex flex-column">
+        <mat-form-field>
+            <mat-label>Firstname</mat-label>
+            <input matInput type="text" formControlName="givenName">
+            <mat-error>Firstname is required</mat-error>
+        </mat-form-field>
+        <!--@if(userForm.get("givenName")?.invalid && userForm.get("givenForm")?.touched){
+            <span>Field is required</span>
+    } an den eixes to mat error tha mporousam etsi-->
+        <mat-form-field>
+            <mat-label >Lastname</mat-label>
+            <input matInput  type="text" formControlName="surName">
+            <mat-error>Lastname is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label >Age</mat-label>
+            <input matInput  type="text" formControlName="age">
+            <mat-error>Age is missing or is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label >Email</mat-label>
+            <input matInput  type="text" formControlName="email">
+            <mat-error>Email is missing or is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label >Address</mat-label>
+            <mat-select formControlName="address">
+                <mat-option value="road1">road1</mat-option>
+                <mat-option value="road2">road2</mat-option>
+            </mat-select>
+            <mat-error>Address is required</mat-error>
+        </mat-form-field>
+        
+    </form>
+    <button 
+        mat-flat-button
+        [disabled]="userForm.invalid"
+        (click)="onSubmit(userForm.value)"
+    >Submit</button>
+
+</div>
+<!--anikoun se ena formgrounppou to lene userForm
+formControlName to onma twn pediwn
+ta input einai ola type text gt to validator ta kanei o controller
+apo to http://angular ... pernoume ton kodika gia ta material stoixeia
+kai antikathistoume ta div kai prosthetoume kapoia attribute
+sta input prosthetoume matInput
+
+me to mat-error grfafoume to mssage an xtipisei to validator
+-->

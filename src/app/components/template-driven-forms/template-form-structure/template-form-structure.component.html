@@ -1,0 +1,50 @@
+<div class="d-flex flex-column">
+    <h5>New Person Form</h5>
+    <form #userForm="ngForm" class="d-flex flex-column">
+        <mat-form-field >
+            <mat-label for="">firstname</mat-label>
+            <input matInput type="text" name="givenName" required ngModel #givenName="ngModel">
+            <mat-error>firstname is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="">Lastname</mat-label>
+            <input matInput type="text" name="surName" required ngModel #surName="ngModel">
+            <mat-error>Lastname is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="">Age</mat-label>
+            <input 
+                matInput type="number" 
+                name="age"
+                ngModel 
+                required
+                #age="ngModel"
+                min="18"
+                max="80"
+            >
+            <mat-error>Age is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="">Email</mat-label>
+            <input required matInput type="text" name="email" ngModel #email="ngModel">
+            <mat-error>Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="">Address</mat-label>
+            <mat-select name="address" ngModel #address="ngModel">
+                <mat-option value="road1">road1</mat-option>
+                <mat-option value="road2">road2</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <button 
+        [disabled]="userForm.invalid" 
+        mat-flat-button 
+        color="primary"
+        (click)="onSubmit(userForm.value)"
+    >Submit</button>
+    <button (click)="onSetValue()"> Reset</button>
+</div>
+
+<!--to userForm to diko mas einai ena ngForm pou to pernoume apo ta formModules kathe pedio einai ena ngModel tis ngForm kai 
+to ngModel exei ena onoma pou dinete me #-->
